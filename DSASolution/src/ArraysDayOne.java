@@ -44,7 +44,7 @@ public class ArraysDayOne {
         System.out.println("min value is "+min);
         System.out.println("max value is "+max);
 
-return -1;
+    return max+min;
     }
 
 
@@ -90,4 +90,22 @@ return -1;
 
     }
 
+
+    public static int concatanatedArray(int[] arr, int k){
+        int length = arr.length;
+        int[] b = new int[k+length];
+        for(int i =0;i<k;i++){
+            System.arraycopy(arr,0, b, i * arr.length, arr.length);
+        }
+        int sum =0;
+        int maxi = Integer.MIN_VALUE;
+        for(int i =0;i<b.length;i++){
+            sum +=b[i];
+            if(sum >maxi)maxi = sum;
+            if(sum<0) sum =0;
+        }
+        return maxi;
+    }
+
+    
 }
